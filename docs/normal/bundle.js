@@ -1998,9 +1998,11 @@ function createLogoViewer (container, renderScene, {
     shouldRender = true
   }
   function setFollowMouse (state) {
+    // eslint-disable-next-line no-param-reassign
     followMouse = state
   }
   function setFollowMotion (state) {
+    // eslint-disable-next-line no-param-reassign
     followMotion = state
   }
 
