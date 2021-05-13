@@ -1,13 +1,25 @@
 {
-  "name": "metamask-logo",
-  "version": "2.2.1",
-  "description": "A browserifyable 3d metamask logo. [Live demo](http://metamask.github.io/metamask-logo/).",
+  "name": "@metamask/logo",
+  "version": "2.5.0",
+  "description": "A browserifyable 3d metamask logo. [Live demo](http://metamask.github.io/logo/).",
   "main": "index.js",
+  "engines": {
+    "node": ">=12.0.0"
+  },
   "scripts": {
-    "build": "browserify example/example.js -g uglifyify -o bundle.js",
-    "start": "wzrd example/example.js:bundle.js",
+    "build": "yarn bundle normal && yarn bundle gradient && yarn bundle recolor && yarn bundle distort",
+    "bundle": "./example/build.sh",
     "convert": "node convert.js > fox.json",
-    "test": "standard index.js"
+    "lint": "eslint . --ext js,json",
+    "lint:fix": "yarn lint --fix"
+  },
+  "files": [
+    "bundle.js",
+    "fox.json"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "author": "MetaMask",
   "license": "ISC",
@@ -17,18 +29,21 @@
     "mersenne-twister": "^1.1.0"
   },
   "devDependencies": {
-    "browserify": "^16.2.2",
+    "@metamask/eslint-config": "^3.2.0",
+    "browserify": "^16.5.2",
     "copy-to-clipboard": "^3.0.5",
-    "standard": "^14.3.1",
-    "uglifyify": "^5.0.2",
-    "wzrd": "^1.5.0"
+    "eslint": "^7.7.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-json": "^2.1.2",
+    "mersenne-twister": "^1.1.0",
+    "uglifyify": "^5.0.2"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MetaMask/metamask-logo.git"
+    "url": "git+https://github.com/MetaMask/logo.git"
   },
   "bugs": {
-    "url": "https://github.com/MetaMask/metamask-logo/issues"
+    "url": "https://github.com/MetaMask/logo/issues"
   },
-  "homepage": "https://github.com/MetaMask/metamask-logo#readme"
+  "homepage": "https://github.com/MetaMask/logo#readme"
 }
